@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
 
 public class WeaponSelectorButton : MonoBehaviour 
@@ -9,13 +9,12 @@ public class WeaponSelectorButton : MonoBehaviour
     public tk2dTextMesh weaponMesh;
     public List<Material> allMaterials;
     private string subString;
-
-    public int changedNumberOfTimes = 0;
-
+    private int changedNumberOfTimes = 0;
     private GameObject player;
 	
-	void Start () 
+    void Start () 
     {
+        
         weaponMesh = GameObject.Find("EquippedWeapon").GetComponent<tk2dTextMesh>();
         GameObjects=GameObject.FindGameObjectsWithTag("Ase");
 
@@ -26,12 +25,12 @@ public class WeaponSelectorButton : MonoBehaviour
 
         allMaterials.Add(Resources.Load("Dwarf_weapons_01") as Material);           
         allMaterials.Add(Resources.Load("Dwarf_weapons_02") as Material);
-	}
+    }
 
     void Update() 
     {
         weaponMesh.text = "Weapon at hand : \n^6" + GameObjects[0].name;
-	}
+    }
 
     void OnClick()
     {
